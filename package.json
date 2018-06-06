@@ -1,0 +1,36 @@
+{
+  "name": "image-uploader",
+  "version": "1.0.0",
+  "description": "simple image uploader to google-cloud/storage",
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/storage": "^1.7.0",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.4",
+    "multer": "^1.3.0",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erwinwahyura/image-uploader.git"
+  },
+  "keywords": [
+    "image-uploader",
+    "gcs",
+    "storage",
+    "formdata",
+    "cloud"
+  ],
+  "author": "Erwin W Ramadhan <erwinwahyuramadhan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erwinwahyura/image-uploader/issues"
+  },
+  "homepage": "https://github.com/erwinwahyura/image-uploader#readme"
+}
