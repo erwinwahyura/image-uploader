@@ -51,6 +51,11 @@ const sendUploadToGCS = (req, res, next) => {
   const Multer = require('multer'),
         multer = Multer({
           storage: Multer.memoryStorage(),
+          fileFilter: (req, file, cb) => {
+            const type = file.mimetype.split('/').shift()
+            if (type != 'image') cb({ status: 400, error: 'filetype is not acceptabel' }, false)
+            else cb(null, true)
+          },
           limits: {
             fileSize: 5 * 1024 * 1024
           }
