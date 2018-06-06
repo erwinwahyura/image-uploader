@@ -2,7 +2,7 @@ require('dotenv').config()
 const cors = require('cors')
 const express = require('express')
 const app = express()
-
+const normalizePort = require('normalize-port')
 // database
 const mongoose = require('mongoose')
 const url = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds151180.mlab.com:51180/image-uploader`
@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/', index)
 
-app.listen(3000, () => console.log('listening on port 3000'))
+const port = normalizePort(process.env.PORT || '3000')
+app.listen(port, () => console.log('listening on port ', port))
 
 module.exports = app
