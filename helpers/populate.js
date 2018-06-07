@@ -15,6 +15,7 @@ const populateHandler = (req, res, next, id) => {
         res.send(img)
     })
     .catch(err => {
+        console.log(err)
         res.send({
             error: errorHandler('error get latest data!')
         })
