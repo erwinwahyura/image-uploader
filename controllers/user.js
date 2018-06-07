@@ -27,10 +27,11 @@ const requestToken = (req, res, next) => {
                 if (err) {
                     res.send({error: errorHandler('error created user')})
                 }
-                res.send(result)
+                res.status(200).json(result)
             })
+        } else {
+            res.send(user)
         }
-        res.send(user)
     }).catch(err => {
         console.log(err)
     })
