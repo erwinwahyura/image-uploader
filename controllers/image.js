@@ -33,20 +33,22 @@ const imgDetail = (req, res, next) => {
                         }
                         res.send(result)
                     })
+                } else {
+                    // update image
+                    Image.update(userOnImage, {
+                        $set: { 
+                            url: req.file.cloudStoragePublicUrl
+                        }
+                    }, (err, result) => {
+                        if (err) {
+                            res.send({
+                                error: errorHandler('error update image')
+                            })
+                        } else {
+                            return populateHandler(req, res, next, user._id)
+                        }
+                    })
                 }
-                // update image
-                Image.update(userOnImage, {
-                    $set: { 
-                        url: req.file.cloudStoragePublicUrl
-                    }
-                }, (err, result) => {
-                    if (err) {
-                        res.send({
-                            error: errorHandler('error update image')
-                        })
-                    }
-                    populateHandler(req, res, next, user._id)
-                })
             })
             .catch(err => {
                 res.send({
